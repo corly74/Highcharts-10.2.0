@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
     <link href="./css/iiot.css" rel="stylesheet">
     <style type="text/css">
         #container {
@@ -77,15 +79,29 @@
                 <main class="c-main bg-white pb-2">
 
                     <div class="container-fluid">
-                        <div class="row">
+                        <div class="row ">
                             <div class="col-7">
                                 <div id="daily"></div>
                             </div>
                             <div class="col-5">
-                                2 of 3
+                                <div id="container"></div>
+
                             </div>
 
                         </div>
+                        <div class="row ">
+                            <div class=" col-7"></div>
+                            <div class=" col-5">
+                                <div class="row g-2" style="gap: 1em;">
+                                    <div class="col bg-info">2</div>
+                                    <div class="col bg-info">2</div>
+                                    <div class="col bg-info">2</div>
+                                    <div class="col bg-info">2</div>
+                                </div>
+                            </div>
+
+                        </div>
+                      
                     </div>
 
 
@@ -102,7 +118,12 @@
             </footer>
         </div>
     </div>
-
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
     <script src="./js/iiot.js"></script>
 
     <script type="text/javascript">
@@ -126,7 +147,12 @@
                 colorByPoint: true,
                 data: [29.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6],
                 showInLegend: false
-            }]
+            }],
+            // 關閉右上角menu
+            exporting: {
+                enabled: false
+            },
+            colors: ['#000080', '#add8e6', '#000080', '#add8e6', '#000080', '#add8e6', '#000080'],
         });
 
         document.getElementById('plain').addEventListener('click', () => {
@@ -137,7 +163,8 @@
                 },
                 subtitle: {
                     text: 'Plain'
-                }
+                },
+
             });
         });
 
@@ -149,7 +176,8 @@
                 },
                 subtitle: {
                     text: 'Inverted'
-                }
+                },
+
             });
         });
 
@@ -163,6 +191,68 @@
                     text: 'Polar'
                 }
             });
+        });
+
+
+
+    </script>
+
+    <script type="text/javascript">
+
+
+
+        Highcharts.chart('container', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Browser market shares in January, 2018'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            colors: ['#FF1C1C', '#3cb371', '#4169e1	', '#ffd700'],
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            // 關閉右上角menu
+            exporting: {
+                enabled: false
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: [{
+                    name: '異常',
+                    y: 61.41,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: '加工中',
+                    y: 11.84
+                }, {
+                    name: '閒置',
+                    y: 10.85
+                }, {
+                    name: '未連線',
+                    y: 4.67
+                }]
+            }]
         });
 
     </script>
