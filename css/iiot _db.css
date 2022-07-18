@@ -2154,9 +2154,14 @@ body {
     font-weight: 400;
     line-height: 1.5;
     text-align: left;
-    color: #3c4b64;
+    color: #ffffff;
     background-color: #121724
 }
+
+.shadow-dark {
+    box-shadow: 0 0.5rem 1rem rgb(0 0 21 / 50%) !important;
+}
+
 
 [tabindex="-1"]:focus:not(:focus-visible) {
     outline: 0 !important
@@ -2247,13 +2252,13 @@ sup {
 a {
     text-decoration: none;
     background-color: transparent;
-    color: #321fdb
+    color: rgba(255, 255, 255, .5);
 }
 
 @media(hover: hover), (-ms-high-contrast: none) {
     a:hover {
         text-decoration: underline;
-        color: #321fdb
+        color: rgba(255, 255, 255);
     }
 }
 
@@ -3271,7 +3276,7 @@ html:not([dir=rtl]) .breadcrumb-item+.breadcrumb-item::before {
 }
 
 .breadcrumb-item.active {
-    color: #8a93a2
+    color: #A6C8FF
 }
 
 .btn-group, .btn-group-vertical {
@@ -24321,7 +24326,7 @@ html, body {
 } */
 
 body {
-    background-color: #ebedef
+    background-color: #121724
 }
 
 .c-sidebar {
