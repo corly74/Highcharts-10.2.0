@@ -96,16 +96,20 @@ color: rgba(255,255,255 ,.6);
 }
 .custom-switch.custom-switch-lg .custom-control-label::before {
     border-radius: 1rem;
-    height: 1.5rem;
-    width: 2.5rem;
+    height: 1rem;
+    width: 2rem;
 }
 .custom-switch.custom-switch-lg .custom-control-label::after {
     border-radius: 0.65rem;
-    height: calc(1.5rem - 4px);
-    width: calc(1.5rem - 4px);
+    height: calc(1rem - 4px);
+    width: calc(1rem - 4px);
 }
 .custom-switch.custom-switch-lg .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(1rem);
+}
+
+.sub-title{
+    font-size: calc(0.75rem + .3vw);
 }
 
 /*  */
@@ -15020,7 +15024,7 @@ h4, .h4 {
 }
 
 h5, .h5 {
-    font-size: 1.09375rem
+   font-size: 1.25rem;
 }
 
 h6, .h6 {
