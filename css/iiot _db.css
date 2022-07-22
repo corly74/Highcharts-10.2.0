@@ -106,6 +106,7 @@ color: rgba(255,255,255 ,.6);
 }
 .custom-switch.custom-switch-lg .custom-control-input:checked ~ .custom-control-label::after {
     transform: translateX(1rem);
+    box-shadow: -2px 0px 5px 0px rgb(0 0 0 / 50%);
 }
 
 .sub-title{
@@ -6230,8 +6231,8 @@ html:not([dir=rtl]) .custom-control-input {
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: #321fdb;
-    background-color: #321fdb
+    border-color: rgba(255, 255, 255,1);
+    background-color: #a6c8ff;
 }
 
 .custom-control-input:focus~.custom-control-label::before {
@@ -6371,7 +6372,8 @@ html:not([dir=rtl]) .custom-switch .custom-control-label::before {
 }
 
 html:not([dir=rtl]) .custom-switch .custom-control-label::after {
-    left: calc(-2.25rem + 2px)
+    left: calc(-2.25rem + 2px);
+    box-shadow: 1px 0px 4px 1px rgb(4 4 4 / 81%);
 }
 
 *[dir=rtl] .custom-switch .custom-control-label::after {
