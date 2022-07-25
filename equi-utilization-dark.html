@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+        integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link href="./css/iiot _db.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+        integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+        crossorigin="anonymous"></script>
+
+
+</head>
+<style>
+    .highcharts-data-label-connector {
+        display: none;
+    }
+
+    #note {
+        height: 300px;
+        max-width: 800px;
+        min-width: 400px;
+    }
+
+    #note2 {
+        height: 300px;
+        max-width: 800px;
+        min-width: 400px;
+    }
+</style>
+
+<body>
+
+    <script src="./code/highcharts.js"></script>
+    <script src="./code/highcharts-more.js"></script>
+    <script src="./code/modules/exporting.js"></script>
+    <script src="./code/modules/export-data.js"></script>
+    <script src="./code/modules/accessibility.js"></script>
+    <script src="https://code.highcharts.com/modules/dumbbell.js"></script>
+    <script src="https://code.highcharts.com/modules/lollipop.js"></script>
+
+    <div id="app">
+        <div class="c-sidebar c-sidebar-default c-sidebar-lg-show c-sidebar-fixed"></div>
+        <div class="c-wrapper">
+            <header class="c-header c-header-light c-header-fixed c-header-with-subheader"></header>
+            <div class="c-body">
+                <main class="c-main  pb-2">
+
+                    <div class="container-fluid">
+
+                        <h3 class="mt-3" style="color:rgba(255, 255, 255, .6)">設備總覽</h3>
+                        <div class="row g-2 mt-4 px-3 text-base" style="gap: 1em;">
+                            <div class="col d-flex justify-content-between "
+                                style="background-color:rgba(255,255,255,.7) ;color: #121724;""
+                                >
+                                <span class="">設備總數</span><span>11</span>
+                            </div>
+                            <div class=" col d-flex justify-content-between " style="
+                                background-color:rgba(255,255,255,.7) ;color: #121724;"">
+                                <span>平均稼動率</span><span>63%</span>
+                            </div>
+                            <div class="col d-flex justify-content-between  "
+                                style="background-color:rgba(255,255,255,.7) ;color: #121724;""
+                               >
+                                <span>連線</span><span>10</span>
+                            </div>
+                            <div class=" col d-flex justify-content-between " style="
+                                background-color:rgba(255,255,255,.7) ;color: #121724;"">
+                                <span>斷線總</span><span>1</span>
+                            </div>
+
+
+                        </div>
+                        <div class="row g-2 mt-4 px-3 text-base" style="gap: 1em;">
+
+                            <div class="col d-flex justify-content-between  "
+                                style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                <span>異常</span><span>100%</span>
+                            </div>
+                            <div class="col d-flex justify-content-between"
+                                style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                <span>閒置中</span><span>0%</span>
+                            </div>
+                            <div class="col d-flex justify-content-between"
+                                style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                <span>加工中</span><span>100%</span>
+                            </div>
+
+
+                        </div>
+                        <div class="mt-3 d-inline-flex w-100 flex-nowrap"><button type="button"
+                                class="btn btn-outline-primary border-secondary   rounded-0 d-none"><svg
+                                    stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+                                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m3.86 8.753 5.482 4.796c.646.566 1.658.106 1.658-.753V3.204a1 1 0 0 0-1.659-.753l-5.48 4.796a1 1 0 0 0 0 1.506z">
+                                    </path>
+                                </svg></button>
+                            <ul class="nav nav-tabs flex-nowrap overflow-hidden flex-grow-1  cus-nav-pill-rounded ">
+                                <li class="nav-item"><a href="#" class="active  nav-link text-nowrap rounded-top "
+                                        data-tab="tab1"><span>所有設備</span></a></li>
+                                <li class="nav-item"><a href="#" class="  nav-link text-nowrap rounded-top "
+                                        data-tab="tab1"><span>加工設備</span></a></li>
+                                <li class="nav-item"><a href="#" class=" nav-link text-nowrap rounded-top "
+                                        data-tab="tab2"><span>機械手臂</span></a></li>
+
+                            </ul><button type="button"
+                                class="btn btn-outline-primary border-secondary  rounded-0 d-none"><svg
+                                    stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16"
+                                    height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="m12.14 8.753-5.482 4.796c-.646.566-1.658.106-1.658-.753V3.204a1 1 0 0 1 1.659-.753l5.48 4.796a1 1 0 0 1 0 1.506z">
+                                    </path>
+                                </svg></button>
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle2"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle3"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle4"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle5"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class=" p-3 border-0 linear-gradient-bg">
+
+                                    <div class="row ">
+                                        <div class="col-sm-7">
+                                            <div id="circle6"> </div>
+
+
+                                        </div>
+                                        <div class="col-sm-5 text-base " style="height:250px">
+                                            <div class="d-flex flex-column">
+                                                <div class="text-left py-2">
+                                                    <div class="">設備名稱</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">Dtat_test1</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">設備狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">加工數量</div>
+                                                    <div style="background-color:rgba(255,255,255,.4)"
+                                                        class="p-2 text-center">0</div>
+                                                </div>
+                                                <div class="text-left py-2">
+                                                    <div class="">連線狀態</div>
+                                                    <div class="custom-control custom-switch custom-switch-lg">
+                                                        <input type="checkbox" class="custom-control-input"
+                                                            id="customSwitch5">
+                                                        <label class="custom-control-label" for="customSwitch5"></label>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row px-2 pt-4" style="gap:1rem ;">
+
+                                        <div class="col "
+                                            style=" background: linear-gradient(81deg, #f56492 22%, #f25084 59%) ;color: #121724;">
+                                            <span class="px-2">34.4%</span>
+                                        </div>
+
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #A6C8FF 22%, #7eaefc 59%)  ;color: #121724;">
+                                            <span class="px-2">14.8%</span>
+                                        </div>
+
+                                        <div class="col "
+                                            style="background: linear-gradient(81deg, #03DAC5 22%, #02c1c4 59%)  ;color: #121724;">
+                                            <span class="px-2">13.3%</span>
+                                        </div>
+
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+
+
+
+
+
+
+                </main>
+            </div>
+            <footer class="c-footer" style="display: block; border: 1px; padding: 14px 0px; text-align: center;">
+            </footer>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+        crossorigin="anonymous"></script>
+    <script src="./js/iiot _db.js"></script>
+    <script src="./js/equi-utilization-dark.js"></script>
+
+    <script type="text/javascript">
+
+
+    </script>
+
+    <script type="text/javascript">
+
+
+
+    </script>
+
+
+    <script type="text/javascript">
+
+    </script>
+    <script type="text/javascript">
+
+
+
+
+    </script>
+</body>
+
+</html>
